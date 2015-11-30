@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Folio: <%= @sale.folio %></h2>
+<h3>Fechacompra: <%= @sale.fechacompra %></h3>
+<h3>Precio: <%= @sale.precio %></h3>
+<h3>Cantidad: <%= @sale.cantidad %></h3>
+<h3>Cliente: <%= @sale.cliente.nombre %></h3>
+
+<h2>Productos de las Ventas:</h2>
+<% @productos.each do |producto| %>
+  <strong>Nombre:</strong>
+  <%= producto.nombre %>
+  <strong>Precio:</strong>
+  <%= producto.precio %>
+  <strong>Descripcion:</strong>
+  <%= producto.descripcion %>
+  <br>
+<% end %>
+<br>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>

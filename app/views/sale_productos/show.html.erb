@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Venta:</strong>
+  <%= @sale_producto.sale.folio %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @sale_producto.producto.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_sale_producto_path(@sale_producto) %> |
+<%= link_to 'Back', sale_productos_path %>

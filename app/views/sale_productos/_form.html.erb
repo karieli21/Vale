@@ -1,0 +1,25 @@
+<%= form_for(@sale_producto) do |f| %>
+  <% if @sale_producto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sale_producto.errors.count, "error") %> prohibited this sale_producto from being saved:</h2>
+
+      <ul>
+      <% @sale_producto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sale_id %><br>
+    <%= f.select( "sale_id", Sale.all.collect{|l| [ l.folio, l.id ] }, {include_blank: 'Seleccione Venta' }) %>
+  </div>
+  <div class="field">
+    <%= f.label :producto_id %><br>
+  <%= f.select( "producto_id", Producto.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Seleccione Producto' }) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
